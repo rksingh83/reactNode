@@ -8,9 +8,11 @@ import CartItem  from '../cart-item/cart-item.component'
 const CartDropdown = ({cartItems})=>(
   <div className = 'cart-dropdown'>
   <div className ='cart-items'>{
-    cartItems.map(item=><CartItem key ={item.id} item={item}></CartItem>)
-  }
-    </div>
+     
+     cartItems.length>0 ? (
+    cartItems.map(item=>(<CartItem key ={item.id} item={item}></CartItem>))
+     ) :(<span className ='empty-cart'>Your Cart is empty</span>)
+  }   </div>
   <CustomButtom>Go To Checkout</CustomButtom>
   </div>
 );
