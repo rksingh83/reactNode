@@ -8,6 +8,8 @@ import Shop from './components/shop/shop.component'
 import Header from './components/header/header.component';
 import LoginPage from './components/login/login.page';
 import {auth,createUserProfleDocument} from './firebase/firebase.utilis';
+import CheckOut from './pages/checkout/checkout.component'
+  
 import {connect} from 'react-redux'
 class App extends React.Component{
  //#endregio
@@ -45,6 +47,7 @@ class App extends React.Component{
     <Switch>
     <Route exact path ='/' component={HomePage}/>
     <Route path ='/shop' component ={Shop}/>
+    <Route  exact path ='/checkout' component ={CheckOut}/>
     <Route  exact path ='/login' render ={()=>(this.props.currentUser ? (<Redirect to ='/'/>):(<LoginPage/>))}/>
     </Switch>
 

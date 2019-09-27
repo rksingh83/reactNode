@@ -4,8 +4,9 @@ import CustomButtom from '../custom-button/custom-button.componenet';
 import './cart-dropdown.style.scss';
 
 import CartItem  from '../cart-item/cart-item.component'
+import {withRouter} from 'react-router-dom'
 
-const CartDropdown = ({cartItems})=>(
+const CartDropdown = ({cartItems,history})=>(
   <div className = 'cart-dropdown'>
   <div className ='cart-items'>{
      
@@ -13,10 +14,10 @@ const CartDropdown = ({cartItems})=>(
     cartItems.map(item=>(<CartItem key ={item.id} item={item}></CartItem>))
      ) :(<span className ='empty-cart'>Your Cart is empty</span>)
   }   </div>
-  <CustomButtom>Go To Checkout</CustomButtom>
+  <CustomButtom onClick ={()=>history.push('/checkout')}>Go To Checkout</CustomButtom>
   </div>
 );
 
 const mapStateToProps = ({cart:{cartItems}})=>({cartItems})
 
-export default connect(mapStateToProps)(CartDropdown)
+export default withRouter(connect(mapStateToProps)(CartDropdown))
