@@ -1,5 +1,7 @@
 import CartActionTypes from  './cart.types' ;
-import {addQuentyToItem} from './cart.utils'
+import {addQuentyToItem,removeCartItem} from './cart.utils'
+
+
 
 const INITIAL_STATE = {
 hidden:true,
@@ -16,6 +18,14 @@ const cartReducer = (state =INITIAL_STATE,action)=>{
             case CartActionTypes.ADD_CART_ITEM:
             return {
                ...state , cartItems:addQuentyToItem(state.cartItems,action.payload)
+            }
+            case CartActionTypes.CLEAR_CART_ITEM:
+            return{
+               ...state,cartItems:state.cartItems.filter(item=>item.id != action.payload.id)
+            }
+            case CartActionTypes.REMOVE_CART_ITEM:
+            return{
+               ...state ,cartItems:removeCartItem(state.cartItems,action.payload)
             }
             
             default:
