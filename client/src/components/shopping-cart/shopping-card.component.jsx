@@ -7,7 +7,7 @@ import {cartItemCount} from '../../redux/cart/cart.items.select'
 
 
 const ShoppingCart = ({toggleCartHidden,cartItemCount})=>{
-       console.log(toggleCartHidden) 
+     
       return(
     <div className ='cart-icon'onClick = {toggleCartHidden}>
     <ShoppingCartIcon className ='shopping-icon'/>

@@ -1,9 +1,11 @@
 import React from 'react';
 import CollectionItem from '../collection-item/collection-item.component'
 import './preview.style.scss';
-                       
+import selectSection from '../../redux/directory/directory-selectors'    ;
+import {connect}   from 'react-redux'    ;
+//import {select}              
 const ComponentPreview  = ({title,items,restparem})=>{
-  console.log(restparem)
+ 
 return(
  <div className ='conlection-preview'>
  <h1 className='title'>{title.toUpperCase()}</h1>

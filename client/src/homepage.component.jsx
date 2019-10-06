@@ -3,11 +3,11 @@ import Directory from './components/directory/directory.component';
 import './homepage.style.scss' ;
 
 
-const HomePage =()=>{
+const HomePage =(props)=>{
 
   return (
    <div className='homepage'>
-   <Directory/>
+   <Directory props={props}/>
    </div>
   )
 }
