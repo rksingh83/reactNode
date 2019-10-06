@@ -22,7 +22,7 @@ handleSubmit =(e)=>{
    e.preventDefault();
    const {email, password} = this.state;
     const auth = {email,password}
-   axios.post('http://localhost:5000/api/auth',auth)
+   axios.post('/api/auth',auth)
    .then(res=>console.log(this.props.setCurrentUser(res.data)))
    this.setState({email:'',password:''});
 }

@@ -2,11 +2,13 @@ import React from  'react' ;
 import {selectCollection} from '../../redux/shop/shop.selector' ;
 import {connect} from 'react-redux'
 import CollectionItem from '../../components/collection-item/collection-item.component'
-
+import  './collection.page.style.scss' ;
 const collectionPage  = ({collection})=>{
     console.log('page+++++',collection)
 return(
-null
+<div className ="collection-page">            
+{collection.items.map(item=><CollectionItem item={item}/>)}
+</div> 
 )
 }
 

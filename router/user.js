@@ -4,7 +4,10 @@ const bcrypt = require('bcrypt')
 
 const mongoose = require('mongoose');
 const router = exprss.Router();
-
+router.get('/',async (req,res)=>{
+  result= await User.find();
+  res.status(200).send(result)
+})
 router.post('/',async (req,res)=>{
      
     const {error} = validate(req.body);

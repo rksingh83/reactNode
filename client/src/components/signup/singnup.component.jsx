@@ -26,7 +26,7 @@ class SingnUp extends React.Component{
      e.preventDefault();
      const {name ,email ,password} = this.state ;
    const  user = {name,email,password}
-     axios.post('http://localhost:5000/api/user',user)    
+     axios.post('/api/user',user)    
      .then((res)=>console.log(res)) 
        
    }
