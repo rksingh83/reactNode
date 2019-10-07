@@ -4,7 +4,7 @@ import CustomButton from '../custom-button/custom-button.componenet'
 import {signInWithGoggle} from '../../firebase/firebase.utilis';
 import axios from 'axios';
 import {connect} from 'react-redux';
-import  {setCurrentUser} from '../../redux/user/user.actions' ;
+import  {setCurrentUser,removeCurrentUser} from '../../redux/user/user.actions' ;
 
 
 class Login extends React.Component{
@@ -50,6 +50,7 @@ handleChange =(e)=>{
 
 }
 
-const mapDispatchToProps = dispatch =>({setCurrentUser:user=>dispatch(setCurrentUser(user))})
+const mapDispatchToProps = dispatch =>({setCurrentUser:user=>dispatch(setCurrentUser(user)),
+  removeUser:()=>dispatch(removeCurrentUser())})
 
 export default connect(null,mapDispatchToProps)(Login);
