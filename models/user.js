@@ -21,10 +21,13 @@ const userShema = new mongoose.Schema({
      required:true,
      minlength :5,
      maxlength:20246
-     }
+     },
+     role:[]
+
 })
 userShema.methods.generateAuthToken = function(){
-      return jwt.sign({_id:this._id},'priverKey')
+const config = require('config');
+      return jwt.sign({_id:this._id,userName:this.name},config.get('jwtPrivetKey'))
 }
 const User = mongoose.model('User',userShema);
 

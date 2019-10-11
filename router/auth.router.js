@@ -26,7 +26,7 @@ router.post('/',async (req,res)=>{
               const isValidUser = await  bcrypt.compare(req.body.password,user.password);
               if(!isValidUser) return res.status(400).send('Email Or Passwaord Does not match')
              const token   = user.generateAuthToken()
-              const sendRes = {...user,type:'text'}
+              const sendRes = {token:token,userid:user._id,userName:user.name,email:user.email,role:user.role}
               return res.header('X-auth-token',token).send(sendRes)
      }
      catch(e){

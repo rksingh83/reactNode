@@ -2,7 +2,9 @@
 const express = require('express');
 const user  = require('./router/user');
 const connectToDB = require('./dbconnection/connect');
-const auth  = require('./router/auth.router')
+const auth  = require('./router/auth.router');
+const order = require('./router/order.route');;
+const uploadFile = require('./models/filestore')
 connectToDB();
 const app = express();
   //console.log()
@@ -14,6 +16,8 @@ const app = express();
 app.use(express.json())
 app.use('/api/user',user);
 app.use('/api/auth',auth);
+app.use('/api/order',order);
+app.use('/api/upload',uploadFile)
 const port = 7000
 app.listen(port,()=>console.log('connected to node server'))
 
